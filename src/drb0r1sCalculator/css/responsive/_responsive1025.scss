@@ -1,0 +1,36 @@
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+    .app {
+        .logo-holder .title {
+            img {
+                width: 90px;
+            }
+    
+            h1 {
+                font-size: 75px;
+            }
+        }
+
+        .calc-holder .calculator-holder {
+            height: 400px;
+            width: 400px;
+
+            .calculator {
+                .screen {
+                    height: 65px;
+                }
+
+                .keyboard button {
+                    font-size: 25px;
+                }
+            }
+            
+            .advanced-calculator {
+                width: 520px;
+
+                .screen {
+                    width: 470px;
+                }
+            }
+        }
+    }
+}

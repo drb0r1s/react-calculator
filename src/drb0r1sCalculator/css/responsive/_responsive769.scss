@@ -1,0 +1,15 @@
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .app {
+        .app-holder {
+            @include flex-center(column, center);
+        }
+        
+        .logo-holder .title {
+            margin-top: 40px;
+        }
+        
+        .calc-holder {
+            height: 700px;
+        }
+    }
+}

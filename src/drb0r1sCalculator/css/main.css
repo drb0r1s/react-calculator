@@ -1,0 +1,864 @@
+@font-face {
+  src: url("../JosefinSans-Regular.ttf");
+  font-family: calculatorFont;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: calculatorFont;
+}
+
+.loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  background: linear-gradient(120deg, #111212, #55555c);
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  overflow: hidden;
+}
+
+.loading .loader {
+  height: 500px;
+  width: 500px;
+  border: 15px solid transparent;
+  border-top: 15px solid #0099ff;
+  border-radius: 50%;
+  -webkit-animation: rotating 1s linear infinite;
+          animation: rotating 1s linear infinite;
+}
+
+@-webkit-keyframes rotating {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotating {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.loading strong {
+  color: #0099ff;
+  font-size: 50px;
+  letter-spacing: 5px;
+  position: absolute;
+  -webkit-animation: blinking 1s linear infinite;
+          animation: blinking 1s linear infinite;
+}
+
+@-webkit-keyframes blinking {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #111212, #55555c);
+  overflow: hidden;
+}
+
+.app .particles-canvas {
+  position: absolute !important;
+}
+
+.app .logo-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 50;
+}
+
+.app .logo-holder .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.app .logo-holder .title img {
+  height: auto;
+  width: 120px;
+  position: relative;
+  left: 0;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+}
+
+.app .logo-holder .title:hover img {
+  left: 50px;
+  opacity: 0.5;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+}
+
+.app .logo-holder .title h1 {
+  color: white;
+  text-align: center;
+  font-size: 100px;
+  text-transform: capitalize;
+  margin: 0;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.app .logo-holder .title:hover h1 {
+  color: #0099ff;
+}
+
+.app .logo-holder .title span {
+  color: #0099ff;
+  text-transform: none;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.app .logo-holder .title:hover span {
+  color: white;
+}
+
+.app .logo-holder a {
+  text-decoration: none;
+}
+
+.app .logo-holder a img {
+  height: auto;
+  width: 200px;
+  position: relative;
+  top: 0;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.app .logo-holder a:hover img {
+  top: -5px;
+  -webkit-filter: drop-shadow(5px 5px 5px #0099ff);
+          filter: drop-shadow(5px 5px 5px #0099ff);
+}
+
+.app .calc-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: 50;
+}
+
+.app .calc-holder .calculator-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 500px;
+  width: 500px;
+  background: linear-gradient(45deg, #2071f5, #6990d1);
+  border-radius: 50%;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
+  position: relative;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.app .calc-holder .calculator-holder:hover {
+  -webkit-box-shadow: 3px -3px 20px 10px #6990d1;
+          box-shadow: 3px -3px 20px 10px #6990d1;
+}
+
+.calculator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 300px;
+  background: linear-gradient(45deg, rgba(10, 10, 10, 0.7), rgba(23, 22, 22, 0.7));
+  border-radius: 20px;
+  position: relative;
+  top: 0;
+  padding: 20px 25px;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+}
+
+.calculator:hover {
+  background: linear-gradient(45deg, #171616, #0a0a0a);
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(255, 255, 255, 0.5);
+          box-shadow: 5px 5px 15px 5px rgba(255, 255, 255, 0.5);
+  top: -5px;
+}
+
+.calculator .signature {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 10px 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.calculator .signature strong {
+  color: white;
+  font-size: 15px;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.calculator .signature p {
+  color: white;
+  font-size: 10px;
+  text-transform: uppercase;
+  margin: 0 10px;
+}
+
+.calculator .signature img {
+  height: auto;
+  width: 100px;
+}
+
+.calculator .screen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 100px;
+  width: 255px;
+  background: #111212;
+  border: 1px solid white;
+  border-radius: 20px;
+  -webkit-box-shadow: inset 0px 0px 15px 5px rgba(255, 255, 255, 0.5);
+          box-shadow: inset 0px 0px 15px 5px rgba(255, 255, 255, 0.5);
+  cursor: -webkit-grab;
+  cursor: grab;
+  margin: 20px 10px;
+  padding: 10px 15px;
+  overflow: hidden;
+}
+
+.calculator .screen p {
+  color: white;
+  font-size: 35px;
+  position: relative;
+  top: 0;
+  left: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 0;
+}
+
+.calculator .keyboard {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.calculator .keyboard button {
+  color: #0099ff;
+  font-size: 35px;
+  background: linear-gradient(120deg, #383535 60%, #666363);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  padding: 10px 15px;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.calculator .keyboard button:hover {
+  color: #111212;
+  background: linear-gradient(120deg, #2071f5, #6990d1);
+  top: -5px;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(255, 255, 255, 0.5);
+          box-shadow: 5px 5px 15px 5px rgba(255, 255, 255, 0.5);
+}
+
+.calculator .keyboard .invert-button {
+  color: #111212;
+  background: #0099ff;
+}
+
+.calculator .keyboard .invert-button:hover {
+  color: #0099ff;
+  background: #111212;
+  top: -5px;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
+}
+
+.calculator .keyboard .keyboard-18 {
+  color: white;
+  background: #0e3cc7;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.calculator .keyboard .keyboard-18:hover {
+  color: #0e3cc7;
+  background: white;
+  top: -5;
+  -webkit-box-shadow: 3px -3px 20px 10px rgba(255, 255, 255, 0.5);
+          box-shadow: 3px -3px 20px 10px rgba(255, 255, 255, 0.5);
+}
+
+.advanced-calculator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 300px;
+  background: linear-gradient(45deg, rgba(10, 10, 10, 0.7), rgba(23, 22, 22, 0.7));
+  border-radius: 20px;
+  position: relative;
+  top: 0;
+  padding: 20px 25px;
+  -webkit-transition: 500ms;
+  transition: 500ms;
+  width: 635px;
+  opacity: 0;
+  position: absolute;
+  top: auto;
+}
+
+.advanced-calculator:hover {
+  background: linear-gradient(45deg, #171616, #0a0a0a);
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(255, 255, 255, 0.5);
+          box-shadow: 5px 5px 15px 5px rgba(255, 255, 255, 0.5);
+  top: -5px;
+}
+
+.advanced-calculator:hover {
+  top: auto;
+}
+
+.advanced-calculator .signature {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 10px 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.advanced-calculator .signature strong {
+  color: white;
+  font-size: 15px;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.advanced-calculator .signature p {
+  color: white;
+  font-size: 10px;
+  text-transform: uppercase;
+  margin: 0 10px;
+}
+
+.advanced-calculator .signature img {
+  height: auto;
+  width: 100px;
+}
+
+.advanced-calculator .screen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 100px;
+  width: 255px;
+  background: #111212;
+  border: 1px solid white;
+  border-radius: 20px;
+  -webkit-box-shadow: inset 0px 0px 15px 5px rgba(255, 255, 255, 0.5);
+          box-shadow: inset 0px 0px 15px 5px rgba(255, 255, 255, 0.5);
+  cursor: -webkit-grab;
+  cursor: grab;
+  margin: 20px 10px;
+  padding: 10px 15px;
+  overflow: hidden;
+}
+
+.advanced-calculator .screen p {
+  color: white;
+  font-size: 35px;
+  position: relative;
+  top: 0;
+  left: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 0;
+}
+
+.advanced-calculator .screen {
+  width: 590px;
+}
+
+.advanced-calculator .keyboard {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.advanced-calculator .keyboard button {
+  color: #0099ff;
+  font-size: 35px;
+  background: linear-gradient(120deg, #383535 60%, #666363);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  top: 0;
+  padding: 10px 15px;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.advanced-calculator .keyboard button:hover {
+  color: #111212;
+  background: linear-gradient(120deg, #2071f5, #6990d1);
+  top: -5px;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(255, 255, 255, 0.5);
+          box-shadow: 5px 5px 15px 5px rgba(255, 255, 255, 0.5);
+}
+
+.advanced-calculator .keyboard .invert-button {
+  color: #111212;
+  background: #0099ff;
+}
+
+.advanced-calculator .keyboard .invert-button:hover {
+  color: #0099ff;
+  background: #111212;
+  top: -5px;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.5);
+}
+
+.advanced-calculator .keyboard button {
+  font-size: 20px;
+}
+
+.advanced-calculator .keyboard .keyboard-0 {
+  color: white;
+  background: #0e3cc7;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.advanced-calculator .keyboard .keyboard-0:hover {
+  color: #0e3cc7;
+  background: white;
+  top: -5;
+  -webkit-box-shadow: 3px -3px 20px 10px rgba(255, 255, 255, 0.5);
+          box-shadow: 3px -3px 20px 10px rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (max-width: 319px) {
+  .loading .loader {
+    height: 220px;
+    width: 220px;
+    border: 7px solid transparent;
+    border-top: 7px solid #0099ff;
+  }
+  .loading strong {
+    font-size: 17px;
+  }
+  .app .app-holder {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .app .logo-holder .title {
+    margin-top: 40px;
+  }
+  .app .logo-holder .title img {
+    width: 50px;
+  }
+  .app .logo-holder .title h1 {
+    font-size: 40px;
+  }
+  .app .logo-holder a img {
+    width: 150px;
+  }
+  .app .calc-holder {
+    height: 700px;
+  }
+  .app .calc-holder .calculator-holder {
+    height: 220px;
+    width: 220px;
+  }
+  .app .calc-holder .calculator-holder .calculator {
+    width: 240px;
+  }
+  .app .calc-holder .calculator-holder .calculator .screen {
+    width: 220px;
+  }
+  .app .calc-holder .calculator-holder .calculator .keyboard button {
+    font-size: 30px;
+    padding: 10px;
+  }
+  .app .calc-holder .calculator-holder .advanced-calculator {
+    width: 250px;
+  }
+  .app .calc-holder .calculator-holder .advanced-calculator .screen {
+    width: 220px;
+  }
+  .app .calc-holder .calculator-holder .advanced-calculator .keyboard button {
+    font-size: 20px;
+    padding: 2px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .loading .loader {
+    height: 300px;
+    width: 300px;
+    border: 10px solid transparent;
+    border-top: 10px solid #0099ff;
+  }
+  .loading strong {
+    font-size: 25px;
+  }
+  .app .app-holder {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .app .logo-holder .title {
+    margin-top: 40px;
+  }
+  .app .logo-holder .title img {
+    width: 70px;
+  }
+  .app .logo-holder .title h1 {
+    font-size: 50px;
+  }
+  .app .calc-holder {
+    height: 700px;
+  }
+  .app .calc-holder .calculator-holder {
+    height: 300px;
+    width: 300px;
+  }
+  .app .calc-holder .calculator-holder .advanced-calculator {
+    width: 310px;
+  }
+  .app .calc-holder .calculator-holder .advanced-calculator .screen {
+    width: 290px;
+  }
+  .app .calc-holder .calculator-holder .advanced-calculator .keyboard button {
+    font-size: 20px;
+    padding: 5px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .loading .loader {
+    height: 400px;
+    width: 400px;
+    border: 12px solid transparent;
+    border-top: 12px solid #0099ff;
+  }
+  .loading strong {
+    font-size: 40px;
+  }
+  .app .app-holder {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .app .logo-holder .title {
+    margin-top: 40px;
+  }
+  .app .logo-holder .title img {
+    width: 90px;
+  }
+  .app .logo-holder .title h1 {
+    font-size: 70px;
+  }
+  .app .calc-holder {
+    height: 700px;
+  }
+  .app .calc-holder .calculator-holder {
+    height: 400px;
+    width: 400px;
+  }
+  .app .calc-holder .calculator-holder .advanced-calculator {
+    width: 450px;
+  }
+  .app .calc-holder .calculator-holder .advanced-calculator .screen {
+    width: 420px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .app .app-holder {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .app .logo-holder .title {
+    margin-top: 40px;
+  }
+  .app .calc-holder {
+    height: 700px;
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  .app .logo-holder .title img {
+    width: 90px;
+  }
+  .app .logo-holder .title h1 {
+    font-size: 75px;
+  }
+  .app .calc-holder .calculator-holder {
+    height: 400px;
+    width: 400px;
+  }
+  .app .calc-holder .calculator-holder .calculator .screen {
+    height: 65px;
+  }
+  .app .calc-holder .calculator-holder .calculator .keyboard button {
+    font-size: 25px;
+  }
+  .app .calc-holder .calculator-holder .advanced-calculator {
+    width: 520px;
+  }
+  .app .calc-holder .calculator-holder .advanced-calculator .screen {
+    width: 470px;
+  }
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1400px) {
+  .app .logo-holder .title img {
+    width: 90px;
+  }
+  .app .logo-holder .title h1 {
+    font-size: 90px;
+  }
+}
+/*# sourceMappingURL=main.css.map */

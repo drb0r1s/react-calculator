@@ -1,0 +1,186 @@
+$defBlack: #111212;
+$defLightBlack: #55555c;
+$defDark: #0a0a0a;
+$defDarkRGB: rgba(10, 10, 10, 0.7);
+$defLightDark: #171616;
+$defLightDarkRGB: rgba(23, 22, 22, 0.7);
+$defGrey: #383535;
+$defLightGrey: #666363;
+$defBlue: #2071f5;
+$defLightBlue: #6990d1;
+$defDarkBlue: #0e3cc7;
+$defAqua: #0099ff;
+$defShadow: 5px 5px 15px 5px rgba(0,0,0,0.5);
+$defWhiteShadow: 5px 5px 15px 5px rgba(255,255,255,0.5);
+$defInnerWhiteShadow: inset 0px 0px 15px 5px rgba(255,255,255,0.5);
+$defGlowingWhiteShadow: 3px -3px 20px 10px rgba(255, 255, 255, 0.5);
+$defGlowingBlueShadow: 3px -3px 20px 10px $defLightBlue;
+
+$defSizeArray: (
+    "xs": 10px,
+    "sm": 15px,
+    "md": 20px,
+    "lg": 25px,
+    "xl": 30px,
+    "xxl": 35px,
+    "heading": 50px,
+    "xheading": 60px,
+    "xxheading": 70px,
+    "superheading": 100px
+);
+
+@function set-size($size) {
+    @return map-get($defSizeArray, $size);
+}
+
+@mixin flex-center($direction: row, $spacing: center) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: center;
+    justify-content: $spacing;
+}
+
+@mixin default-calculator {
+    @include flex-center(column, center);
+    width: 300px;
+    background: linear-gradient(45deg, $defDarkRGB, $defLightDarkRGB);
+    border-radius: 20px;
+    position: relative;
+    top: 0;
+    padding: 20px 25px;
+    transition: 500ms;
+
+    &:hover {
+        background: linear-gradient(45deg, $defLightDark, $defDark);
+        box-shadow: $defWhiteShadow;
+        top: -5px;
+    }
+}
+
+@mixin default-button {
+    button {
+        color: $defAqua;
+        font-size: set-size(xxl);
+        background: linear-gradient(120deg, $defGrey 60%, $defLightGrey);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        position: relative;
+        top: 0;
+        padding: 10px 15px;
+        transition: 300ms;
+
+        &:hover {
+            color: $defBlack;
+            background: linear-gradient(120deg, $defBlue, $defLightBlue);
+            top: -5px;
+            box-shadow: $defWhiteShadow;
+        }
+    }
+}
+
+@mixin invert-button {
+    .invert-button {
+        color: $defBlack;
+        background: $defAqua;
+
+        &:hover {
+            color: $defAqua;
+            background: $defBlack;
+            top: -5px;
+            box-shadow: $defShadow;
+        }
+    }
+}
+
+@mixin default-advanced {
+    color: white;
+    background: $defDarkBlue;
+    transition: 300ms;
+
+    &:hover {
+        color: $defDarkBlue;
+        background: white;
+        top: -5;
+        box-shadow: $defGlowingWhiteShadow;
+    }
+}
+
+@mixin default-screen {
+    .screen {
+        @include flex-center;
+        justify-content: flex-end;
+        height: 100px;
+        width: 255px;
+        background: $defBlack;
+        border: 1px solid white;
+        border-radius: 20px;
+        box-shadow: $defInnerWhiteShadow;
+        cursor: grab;
+        margin: 20px 10px;
+        padding: 10px 15px;
+        overflow: hidden;
+
+        p {
+            color: white;
+            font-size: set-size(xxl);
+            position: relative;
+            top: 0;
+            left: 0;
+            user-select: none;
+            margin: 0;
+        }
+    }
+}
+
+@mixin default-signature {
+    .signature {
+        @include flex-center;
+        margin: 10px 0;
+        user-select: none;
+
+        strong {
+            color: white;
+            font-size: set-size(sm);
+            text-transform: capitalize;
+            text-align: center;
+        }
+
+        p {
+            color: white;
+            font-size: set-size(xs);
+            text-transform: uppercase;
+            margin: 0 10px;
+        }
+
+        img {
+            height: auto;
+            width: 100px;
+        }
+    }
+}
+
+@font-face {
+    src: url("../JosefinSans-Regular.ttf");
+    font-family: calculatorFont;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: calculatorFont;
+}
+
+@import "./sections/loading";
+@import "./sections/app";
+@import "./sections/calculator";
+@import "./sections/aCalculator";
+
+@import "./responsive/responsive319";
+@import "./responsive/responsive320";
+@import "./responsive/responsive481";
+@import "./responsive/responsive769";
+@import "./responsive/responsive1025";
+@import "./responsive/responsive1201";

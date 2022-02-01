@@ -1,0 +1,95 @@
+.app {
+    @include flex-center;
+    min-height: 100vh;
+    background: linear-gradient(45deg, $defBlack, $defLightBlack);
+    overflow: hidden;
+    
+    .particles-canvas {
+        position: absolute !important;
+    }
+    
+    .logo-holder {
+        @include flex-center(column, center);
+        z-index: 50;
+
+        .title {
+            @include flex-center;
+            user-select: none;
+
+            img {
+                height: auto;
+                width: 120px;
+                position: relative;
+                left: 0;
+                transition: 500ms;
+            }
+
+            &:hover img {
+                left: 50px;
+                opacity: 0.5;
+                transform: rotate(180deg);
+                filter: brightness(0) invert(1);
+            }
+            
+            h1 {
+                color: white;
+                text-align: center;
+                font-size: set-size(superheading);
+                text-transform: capitalize;
+                margin: 0;
+                transition: 300ms;
+            }
+
+            &:hover h1 {
+                color: $defAqua;
+            }
+
+            span {
+                color: $defAqua;
+                text-transform: none;
+                transition: 300ms;
+            }
+
+            &:hover span {
+                color: white
+            }
+        }
+
+        a {
+            text-decoration: none;
+
+            img {
+                height: auto;
+                width: 200px;
+                position: relative;
+                top: 0;
+                transition: 300ms;
+            }
+
+            &:hover img {
+                top: -5px;
+                filter: drop-shadow(5px 5px 5px $defAqua);
+            }
+        }
+    }
+
+    .calc-holder {
+        @include flex-center;
+        z-index: 50;
+
+        .calculator-holder {
+            @include flex-center;
+            height: 500px;
+            width: 500px;
+            background: linear-gradient(45deg, $defBlue, $defLightBlue);
+            border-radius: 50%;
+            box-shadow: $defShadow;
+            position: relative;
+            transition: 300ms;
+
+            &:hover {
+                box-shadow: $defGlowingBlueShadow;
+            }
+        }
+    }
+}

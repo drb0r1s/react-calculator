@@ -1,0 +1,36 @@
+.loading {
+    @include flex-center;
+    height: 100vh;
+    background: linear-gradient(120deg, $defBlack, $defLightBlack);
+    position: relative;
+    user-select: none;
+    overflow: hidden;
+    
+    .loader {
+        height: 500px;
+        width: 500px;
+        border: 15px solid transparent;
+        border-top: 15px solid $defAqua;
+        border-radius: 50%;
+        animation: rotating 1s linear infinite;
+
+        @keyframes rotating {
+            0% { transform: rotate(0); }
+            100% { transform: rotate(360deg); }
+        }
+    }
+
+    strong {
+        color: $defAqua;
+        font-size: set-size(heading);
+        letter-spacing: 5px;
+        position: absolute;
+        animation: blinking 1s linear infinite;
+
+        @keyframes blinking {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    }
+}

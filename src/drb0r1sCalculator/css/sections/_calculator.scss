@@ -1,0 +1,20 @@
+.calculator {
+    @include default-calculator;
+
+    @include default-signature;
+    @include default-screen;
+    
+    .keyboard {
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+
+        @include default-button;
+        @include invert-button;
+        
+        .keyboard-18 {
+            @include default-advanced;
+        }
+    }
+}

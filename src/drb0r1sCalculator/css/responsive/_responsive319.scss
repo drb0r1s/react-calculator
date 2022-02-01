@@ -1,0 +1,73 @@
+@media screen and (max-width: 319px) {
+    .loading {
+        .loader {
+            height: 220px;
+            width: 220px;
+            border: 7px solid transparent;
+            border-top: 7px solid $defAqua;
+        }
+
+        strong {
+            font-size: 17px;
+        }
+    }
+
+    .app {
+        .app-holder {
+            @include flex-center(column, center);
+        }
+        
+        .logo-holder {
+            .title {
+                margin-top: 40px;
+
+                img {
+                    width: 50px;
+                }
+
+                h1 {
+                    font-size: 40px;
+                }
+            }
+
+            a img {
+                width: 150px;
+            }
+        }
+        
+        .calc-holder {
+            height: 700px;
+
+            .calculator-holder {
+                height: 220px;
+                width: 220px;
+
+                .calculator {
+                    width: 240px;
+
+                    .screen {
+                        width: 220px;
+                    }
+
+                    .keyboard button {
+                        font-size: 30px;
+                        padding: 10px;
+                    }
+                }
+                
+                .advanced-calculator {
+                    width: 250px;
+
+                    .screen {
+                        width: 220px;
+                    }
+
+                    .keyboard button {
+                        font-size: 20px;
+                        padding: 2px;
+                    }
+                }
+            }
+        }
+    }
+}

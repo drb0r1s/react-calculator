@@ -1,0 +1,54 @@
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .loading {
+        .loader {
+            height: 300px;
+            width: 300px;
+            border: 10px solid transparent;
+            border-top: 10px solid $defAqua;
+        }
+
+        strong {
+            font-size: 25px;
+        }
+    }
+
+    .app {
+        .app-holder {
+            @include flex-center(column, center);
+        }
+        
+        .logo-holder .title {
+            margin-top: 40px;
+
+            img {
+                width: 70px;
+            }
+
+            h1 {
+                font-size: 50px;
+            }
+        }
+        
+        .calc-holder {
+            height: 700px;
+
+            .calculator-holder {
+                height: 300px;
+                width: 300px;
+
+                .advanced-calculator {
+                    width: 310px;
+
+                    .screen {
+                        width: 290px;
+                    }
+
+                    .keyboard button {
+                        font-size: 20px;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
