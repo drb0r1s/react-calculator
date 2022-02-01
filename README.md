@@ -26,7 +26,7 @@ List of functions that this calculator has:
 - *Root* (square root, cube root),
 - *Trigonometry* (sin, cos, tan, ctg),
 - *Logarithms* (log, log2),
-- *PI* & *E*
+- *PI* & *E*.
 
 Also, the *advanced calculator* has a **bracketing system**. On the basis of the current state of the calculation, the calculator determines the placement of *open* or *closed* brackets.
 
