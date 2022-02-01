@@ -4,18 +4,18 @@
 
 ## Features
 
-- This whole project can be divided into *two important parts*, which are:
+This whole project can be divided into *two important parts*, which are:
 - **Calculator**,
 - **Advanced Calculator**.
 
 ### Calculator
 
-- The *classic* or *basic* **calculator** in this project provides the ability to calculate *basic arithmetic operations*, such as:
+The *classic* or *basic* **calculator** in this project provides the ability to calculate *basic arithmetic operations*, such as:
 - addition,
 - subtraction,
 - multiplication or
 - division,
-- with *integers* or *float* numbers.
+with *integers* or *float* numbers.
 
 ### Advanced Calculator
 
@@ -28,7 +28,7 @@ List of functions that this calculator has:
 - *Logarithms* (log, log2),
 - *PI* & *E*
 
-- Also, the *advanced calculator* has a **bracketing system**. On the basis of the current state of the calculation, the calculator determines the placement of *open* or *closed* brackets.
+Also, the *advanced calculator* has a **bracketing system**. On the basis of the current state of the calculation, the calculator determines the placement of *open* or *closed* brackets.
 
 ## Author
 
