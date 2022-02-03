@@ -37,6 +37,6 @@ Also, the *advanced calculator* has a **bracketing system**. On the basis of the
 *Github:* **drb0r1s**
 *Discord:* **boris**#1171
 
-### React Playground Review
+### React Calculator Review
 
-[React Playground](https://drb0r1s-react-playground.netlify.app/)
+[React Calculator](https://drb0r1s-react-calculator.netlify.app/)
